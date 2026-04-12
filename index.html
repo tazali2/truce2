@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truce? 🥺</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffd6e8, #fff0f5);
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  h1 {
+    margin-top: 80px;
+    font-size: 24px;
+    padding: 0 20px;
+    color: #ff4d88;
+  }
+
+  .btn {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  #yesBtn {
+    background-color: #ff66a3;
+    color: white;
+    margin-top: 40px;
+    position: relative;
+  }
+
+  #noBtn {
+    background-color: #ccc;
+    color: black;
+    position: absolute;
+  }
+
+  #message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff3385;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Can we truce and be happy and live happily ever after? 🥺💖</h1>
+
+<button id="yesBtn" class="btn">Yes 😭💞</button>
+<button id="noBtn" class="btn">No 🙄</button>
+
+<div id="message"></div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const message = document.getElementById("message");
+
+let yesSize = 1;
+let messages = [
+  "please… 😭",
+  "be serious rn 😐",
+  "stop playing 😭💔",
+  "you dragging it now…",
+  "I’ll literally be nice forever",
+  "LAST CHANCE 😭"
+];
+let msgIndex = 0;
+
+function moveNoButton() {
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  yesSize += 0.2;
+  yesBtn.style.transform = `scale(${yesSize})`;
+
+  if (msgIndex < messages.length) {
+    message.innerText = messages[msgIndex];
+    msgIndex++;
+  }
+}
+
+noBtn.addEventListener("touchstart", moveNoButton);
+noBtn.addEventListener("mouseover", moveNoButton);
+
+yesBtn.addEventListener("click", () => {
+  window.open("https://www.youtube.com/watch?v=0yW7w8F2TVA", "_blank");
+
+  document.body.innerHTML = `
+    <h1 style="margin-top:100px; color:#ff4d88;">
+      YAYYY 😭💖 <br><br>
+      I PROMISE I’M DONE BEING ANNOYING <br><br>
+      Happily ever after starts now 💞✨
+    </h1>
+  `;
+});
+
+moveNoButton();
+</script>
+
+</body>
+</html>
